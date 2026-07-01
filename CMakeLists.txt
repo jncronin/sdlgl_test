@@ -23,5 +23,14 @@ PRIVATE
     GL
 )
 
+if(GAMEKID)
+    target_link_libraries(sdlgl_test
+    PRIVATE
+        z
+        GKGL
+        GL
+    )
+endif()
+
 install(TARGETS sdlgl_test)
 include(CPack)
