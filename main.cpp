@@ -9,8 +9,18 @@ int main()
 
     auto wnd = SDL_CreateWindow("sdlgl_test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
         800, 480, SDL_WINDOW_OPENGL);
+    if(!wnd)
+    {
+        fprintf(stderr, "SDL_CreateWindow failed\n");
+        return -1;
+    }
 
     auto ctx = SDL_GL_CreateContext(wnd);
+    if(!ctx)
+    {
+        fprintf(stderr, "SDL_GL_CreateContext failed\n");
+        return -1;
+    }
 
     bool running = true;
     float angle = 0.0f;
